@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutChatRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ChatActivity">
+
+    <!-- Top Bar: Name + Call Icon + Video Call Icon -->
+    <LinearLayout
+        android:id="@+id/layoutTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="@android:color/transparent" />
+
+        <TextView
+            android:id="@+id/textViewContactName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Henry Benjamin"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <!-- This View pushes the call buttons to the far right -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Call button -->
+        <ImageButton
+            android:id="@+id/buttonCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/call"
+            android:background="@android:color/transparent" />
+
+        <!-- Video call button -->
+        <ImageButton
+            android:id="@+id/buttonVideoCall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/videocall"
+        android:background="@android:color/transparent" />
+
+    </LinearLayout>
+
+    <!-- Profile Section (avatar + "View Profile") -->
+    <LinearLayout
+        android:id="@+id/layoutProfileSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTopBar"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/imageViewAvatar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/henrybenjamin"
+            android:scaleType="centerCrop"
+            android:clipToOutline="true" />
+
+        <Button
+            android:id="@+id/buttonViewProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="View Profile"
+            android:textAllCaps="false"
+            android:backgroundTint="#8B5A2B"
+            android:textColor="@android:color/white" />
+
+        <Switch
+            android:id="@+id/switchVanishMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="Vanish Mode" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+    </LinearLayout>
+
+    <!-- RecyclerView for chat messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChat"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@+id/layoutBottomBar"
+        android:layout_below="@id/layoutProfileSection" />
+
+    <!-- Bottom Bar (typing + send icon) -->
+    <LinearLayout
+        android:id="@+id/layoutBottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/editTextMessage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Typing..."
+            android:padding="12dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="#999999" />
+
+        <ImageButton
+            android:id="@+id/buttonSend"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/send"
+            android:background="@android:color/transparent"
+            android:layout_marginStart="8dp" />
+    </LinearLayout>
+</RelativeLayout>
