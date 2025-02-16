@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutCall"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D3D3D3"
+    tools:context=".CallActivity">
+
+    <!-- Caller Name -->
+    <TextView
+        android:id="@+id/tvCallerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Henry Benjamin"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:gravity="center" />
+
+    <!-- Call Time -->
+    <TextView
+        android:id="@+id/tvCallTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10:32"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/tvCallerName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:gravity="center" />
+
+
+    <FrameLayout
+        android:id="@+id/localVideoPreview"
+        android:layout_width="120dp"
+        android:layout_height="160dp"
+        android:layout_margin="16dp"
+        android:layout_marginRight="36dp"
+        android:layout_marginBottom="128dp"
+        android:background="@color/white"
+        android:elevation="40dp"
+        app:layout_constraintBottom_toTopOf="@id/llCallControls"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/llCallControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp"
+        android:background="#C4A484"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Example Buttons (Replace drawables with your own icons) -->
+
+        <ImageButton
+            android:id="@+id/buttonMore"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/menu"
+            android:background="@null"
+            android:contentDescription="More options" />
+
+        <ImageButton
+            android:id="@+id/buttonVideo"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/videocall"
+            android:background="@null"
+            android:contentDescription="Video" />
+
+        <ImageButton
+            android:id="@+id/buttonSpeaker"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/speaker"
+            android:background="@null"
+            android:contentDescription="Speaker" />
+
+        <ImageButton
+            android:id="@+id/buttonMute"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/mic"
+            android:background="@null"
+            android:contentDescription="Mute" />
+
+        <ImageButton
+            android:id="@+id/buttonEndCall"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/endcall"
+            android:background="@null"
+            android:contentDescription="End Call" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
