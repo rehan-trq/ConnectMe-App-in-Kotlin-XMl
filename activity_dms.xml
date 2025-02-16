@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutDmsRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".DmsActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutTopBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <!-- Back icon on the far left -->
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back"
+            android:contentDescription="back" />
+
+        <!-- A small horizontal space between back icon & username -->
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="match_parent" />
+
+        <!-- Username (e.g., "OliviaD") -->
+        <TextView
+            android:id="@+id/textViewUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OliviaD"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <!-- Spacer to push "Requests" to the right -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- "Requests" text on the far right -->
+        <TextView
+            android:id="@+id/textViewRequests"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Requests"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+
+    <!-- Optional row or "tab" label for DMs -->
+    <LinearLayout
+        android:id="@+id/layoutDmTab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layoutTopBar"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp">
+
+        <TextView
+            android:id="@+id/textViewDmsTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DMs"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <!-- Optional line under "DMs" if you want to highlight it:
+             This can be done with a separate View or by customizing a background drawable. -->
+    </LinearLayout>
+
+    <!-- Underline below the DM tab -->
+    <View
+        android:id="@+id/viewUnderline"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/layoutDmTab"
+        android:background="@android:color/darker_gray" />
+
+    <!-- Search Bar -->
+    <EditText
+        android:id="@+id/editTextSearchDm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/viewUnderline"
+        android:layout_margin="16dp"
+        android:hint="Search for DMs"
+        android:padding="12dp"
+        android:textColor="@color/black"/>
+
+    <!-- RecyclerView for DM contacts -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewDms"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/editTextSearchDm"
+        android:layout_marginTop="4dp" />
+
+</RelativeLayout>
