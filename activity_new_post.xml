@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutNewPost"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".NewPostActivity">
+
+    <!-- Top Bar -->
+    <LinearLayout
+        android:id="@+id/llTopBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Back Arrow -->
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/close"
+            android:contentDescription="Back Arrow"
+            android:layout_marginEnd="16dp" />
+
+        <!-- Title: "New post" -->
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New post"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_weight="1" />
+
+        <!-- "Next" -->
+        <TextView
+            android:id="@+id/tvNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_gravity="end" />
+    </LinearLayout>
+
+    <!-- Selected Image Preview -->
+    <ImageView
+        android:id="@+id/ivSelectedImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:contentDescription="Selected Image"
+        app:layout_constraintTop_toBottomOf="@id/llTopBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="8dp"
+        app:layout_constraintHeight_default="wrap"
+        app:layout_constraintDimensionRatio="1:1" />
+
+    <!-- Row with "Recents" and Camera Icon -->
+    <LinearLayout
+        android:id="@+id/llGalleryBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/ivSelectedImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- "Recents" Text (could also be a Spinner if you want multiple albums) -->
+        <TextView
+            android:id="@+id/tvRecents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recents"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:layout_weight="1" />
+
+        <!-- Camera Icon -->
+        <ImageView
+            android:id="@+id/ivCamera"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/camera"
+            android:contentDescription="Camera Icon" />
+    </LinearLayout>
+
+    <!-- Grid of Images (RecyclerView) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvImages"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/llGalleryBar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:clipToPadding="false"
+        android:padding="4dp"
+        tools:listitem="@layout/item_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
